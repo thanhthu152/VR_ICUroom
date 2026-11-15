@@ -1064,6 +1064,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80397545}
   m_CullTransparentMesh: 1
+--- !u!1 &84126298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 84126299}
+  - component: {fileID: 84126301}
+  - component: {fileID: 84126300}
+  m_Layer: 5
+  m_Name: Trace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &84126299
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84126298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2059474824}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -11}
+  m_SizeDelta: {x: -20, y: -38}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &84126300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84126298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977b209571fafaf4cbbe5fab119f0736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.WaveformGraphic
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.29803923, g: 0.8509804, b: 0.39215687, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  patient: {fileID: 1407152553}
+  wave: 0
+  minValue: -0.5
+  maxValue: 1.2
+  sweepSeconds: 5
+  samples: 600
+  lineWidth: 3
+  gapFraction: 0.03
+--- !u!222 &84126301
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84126298}
+  m_CullTransparentMesh: 1
 --- !u!1 &91967636
 GameObject:
   m_ObjectHideFlags: 0
@@ -10244,6 +10317,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 556121761}
+  - {fileID: 766118655}
   m_Father: {fileID: 900432630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -10288,6 +10362,79 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710941161}
+  m_CullTransparentMesh: 1
+--- !u!1 &717762587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717762588}
+  - component: {fileID: 717762590}
+  - component: {fileID: 717762589}
+  m_Layer: 5
+  m_Name: Trace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &717762588
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717762587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 867353171}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -11}
+  m_SizeDelta: {x: -20, y: -38}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &717762589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717762587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977b209571fafaf4cbbe5fab119f0736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.WaveformGraphic
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.18039216, g: 0.76862746, b: 0.94509804, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  patient: {fileID: 1407152553}
+  wave: 1
+  minValue: -0.1
+  maxValue: 1.2
+  sweepSeconds: 5
+  samples: 600
+  lineWidth: 3
+  gapFraction: 0.03
+--- !u!222 &717762590
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717762587}
   m_CullTransparentMesh: 1
 --- !u!1 &727951644
 GameObject:
@@ -10833,6 +10980,152 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761163370}
+  m_CullTransparentMesh: 1
+--- !u!1 &762949908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 762949909}
+  - component: {fileID: 762949911}
+  - component: {fileID: 762949910}
+  m_Layer: 5
+  m_Name: Trace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &762949909
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762949908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370770622}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -11}
+  m_SizeDelta: {x: -20, y: -38}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &762949910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762949908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977b209571fafaf4cbbe5fab119f0736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.WaveformGraphic
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.52156866, g: 0.7176471, b: 0.92156863, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  patient: {fileID: 1407152553}
+  wave: 5
+  minValue: 0
+  maxValue: 600
+  sweepSeconds: 10
+  samples: 600
+  lineWidth: 3
+  gapFraction: 0.03
+--- !u!222 &762949911
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762949908}
+  m_CullTransparentMesh: 1
+--- !u!1 &766118654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766118655}
+  - component: {fileID: 766118657}
+  - component: {fileID: 766118656}
+  m_Layer: 5
+  m_Name: Trace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &766118655
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766118654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 710941162}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -11}
+  m_SizeDelta: {x: -20, y: -38}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &766118656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766118654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977b209571fafaf4cbbe5fab119f0736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.WaveformGraphic
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.3647059, g: 0.7921569, b: 0.64705884, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  patient: {fileID: 1407152553}
+  wave: 4
+  minValue: -70
+  maxValue: 70
+  sweepSeconds: 10
+  samples: 600
+  lineWidth: 3
+  gapFraction: 0.03
+--- !u!222 &766118657
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766118654}
   m_CullTransparentMesh: 1
 --- !u!1 &794242662
 GameObject:
@@ -11506,6 +11799,7 @@ GameObject:
   - component: {fileID: 865058814}
   - component: {fileID: 865058813}
   - component: {fileID: 865058812}
+  - component: {fileID: 865058815}
   m_Layer: 0
   m_Name: Monitor_screen
   m_TagString: Untagged
@@ -11606,6 +11900,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &865058815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865058810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b387b717c6d77c946854de83b0a2cac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.MonitorDisplay
+  patient: {fileID: 0}
+  lowSpO2Limit: 90
+  highHRLimit: 120
+  lowHRLimit: 50
+  lowEtCO2Limit: 10
+  highRRLimit: 30
+  nibpIntervalSeconds: 15
+  alarmTileColor: {r: 0.45, g: 0.08, b: 0.08, a: 1}
+  bannerColor: {r: 0.776, g: 0.157, b: 0.157, a: 1}
+  blinkHz: 1.5
 --- !u!1 &867353170
 GameObject:
   m_ObjectHideFlags: 0
@@ -11637,6 +11953,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1381567734}
+  - {fileID: 717762588}
   m_Father: {fileID: 865058811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -11909,6 +12226,7 @@ GameObject:
   - component: {fileID: 900432633}
   - component: {fileID: 900432632}
   - component: {fileID: 900432631}
+  - component: {fileID: 900432634}
   m_Layer: 5
   m_Name: Ventilator_screen
   m_TagString: Untagged
@@ -12011,6 +12329,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &900432634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900432629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4996820814f0ef04d9e78a742ecb7ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.VentilatorDisplay
+  patient: {fileID: 0}
+  highPressureLimit: 40
+  lowExhaledVolumeLimit: 300
+  highRespRateLimit: 30
+  alarmTileColor: {r: 0.55, g: 0.1, b: 0.1, a: 1}
+  bannerColor: {r: 0.776, g: 0.157, b: 0.157, a: 1}
+  blinkHz: 1.5
 --- !u!1 &911544445
 GameObject:
   m_ObjectHideFlags: 0
@@ -12586,19 +12923,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: e2b64b699128df74199b224a3cbd95cd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6532815
+      value: 0.61237246
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: e2b64b699128df74199b224a3cbd95cd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.6532815
+      value: -0.61237246
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: e2b64b699128df74199b224a3cbd95cd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.27059805
+      value: -0.3535534
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: e2b64b699128df74199b224a3cbd95cd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.27059805
+      value: -0.3535534
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: e2b64b699128df74199b224a3cbd95cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12606,7 +12943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: e2b64b699128df74199b224a3cbd95cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -45
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: e2b64b699128df74199b224a3cbd95cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -13397,6 +13734,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163951250}
   m_CullTransparentMesh: 1
+--- !u!1 &1175039928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1175039929}
+  - component: {fileID: 1175039931}
+  - component: {fileID: 1175039930}
+  m_Layer: 5
+  m_Name: Trace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1175039929
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175039928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1894117941}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -11}
+  m_SizeDelta: {x: -20, y: -38}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1175039930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175039928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977b209571fafaf4cbbe5fab119f0736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.WaveformGraphic
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.98039216, g: 0.78039217, b: 0.45882353, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  patient: {fileID: 1407152553}
+  wave: 3
+  minValue: 0
+  maxValue: 50
+  sweepSeconds: 10
+  samples: 600
+  lineWidth: 3
+  gapFraction: 0.03
+--- !u!222 &1175039931
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175039928}
+  m_CullTransparentMesh: 1
 --- !u!1 &1186274591
 GameObject:
   m_ObjectHideFlags: 0
@@ -14045,6 +14455,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 164489014}
+  - {fileID: 1371155753}
   m_Father: {fileID: 865058811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -14478,6 +14889,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 551628262}
+  - {fileID: 762949909}
   m_Father: {fileID: 900432630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -14522,6 +14934,79 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370770621}
+  m_CullTransparentMesh: 1
+--- !u!1 &1371155752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371155753}
+  - component: {fileID: 1371155755}
+  - component: {fileID: 1371155754}
+  m_Layer: 5
+  m_Name: Trace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1371155753
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371155752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1257026642}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -11}
+  m_SizeDelta: {x: -20, y: -38}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1371155754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371155752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977b209571fafaf4cbbe5fab119f0736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.WaveformGraphic
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.8392157, b: 0.039215688, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  patient: {fileID: 1407152553}
+  wave: 2
+  minValue: 0
+  maxValue: 50
+  sweepSeconds: 10
+  samples: 600
+  lineWidth: 3
+  gapFraction: 0.03
+--- !u!222 &1371155755
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371155752}
   m_CullTransparentMesh: 1
 --- !u!1 &1377203497
 GameObject:
@@ -15017,6 +15502,135 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381567733}
   m_CullTransparentMesh: 1
+--- !u!1 &1407152551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1407152554}
+  - component: {fileID: 1407152553}
+  - component: {fileID: 1407152552}
+  m_Layer: 0
+  m_Name: Simulation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1407152552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407152551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611ae25a40b05154cb7e436daa75773b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.ScenarioManager
+  patient: {fileID: 0}
+  startScenario: 0
+  scenarios:
+  - name: 0. Normal
+    heartRate: 85
+    spO2: 96
+    etCO2: 38
+    systolic: 120
+    diastolic: 75
+    temperature: 37.2
+    respRate: 14
+    peakPressure: 22
+    peep: 5
+    tidalVolumeInsp: 450
+    tidalVolumeExp: 440
+    fiO2: 40
+  - name: 1. High airway pressure
+    heartRate: 108
+    spO2: 88
+    etCO2: 44
+    systolic: 138
+    diastolic: 84
+    temperature: 37.2
+    respRate: 14
+    peakPressure: 42
+    peep: 5
+    tidalVolumeInsp: 340
+    tidalVolumeExp: 330
+    fiO2: 40
+  - name: 2. Low exhaled volume
+    heartRate: 112
+    spO2: 86
+    etCO2: 3
+    systolic: 132
+    diastolic: 82
+    temperature: 37.2
+    respRate: 14
+    peakPressure: 8
+    peep: 1
+    tidalVolumeInsp: 450
+    tidalVolumeExp: 90
+    fiO2: 40
+  - name: 3. High respiratory rate
+    heartRate: 118
+    spO2: 92
+    etCO2: 31
+    systolic: 148
+    diastolic: 90
+    temperature: 37.4
+    respRate: 34
+    peakPressure: 26
+    peep: 5
+    tidalVolumeInsp: 420
+    tidalVolumeExp: 410
+    fiO2: 40
+--- !u!114 &1407152553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407152551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060a836961542a442ac56c07903c8278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ICUSim.PatientModel
+  ventilatorResponseTime: 2
+  vitalsResponseTime: 20
+  inspiratoryFraction: 0.33
+  current:
+    name: Normal
+    heartRate: 85
+    spO2: 96
+    etCO2: 38
+    systolic: 120
+    diastolic: 75
+    temperature: 37.2
+    respRate: 14
+    peakPressure: 22
+    peep: 5
+    tidalVolumeInsp: 450
+    tidalVolumeExp: 440
+    fiO2: 40
+--- !u!4 &1407152554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407152551}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04905, y: 0.05, z: 1.62661}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1421605973
 GameObject:
   m_ObjectHideFlags: 0
@@ -20980,6 +21594,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 55023430}
+  - {fileID: 1175039929}
   m_Father: {fileID: 900432630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -22097,6 +22712,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1436577631}
+  - {fileID: 84126299}
   m_Father: {fileID: 865058811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -22613,3 +23229,4 @@ SceneRoots:
   - {fileID: 758079683}
   - {fileID: 1427150044}
   - {fileID: 1815997484}
+  - {fileID: 1407152554}
