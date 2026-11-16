@@ -1,12 +1,13 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace ICUSim
 {
     /// <summary>
-    /// Ve mot dang song kieu monitor: net ve chay tu trai sang phai,
-    /// co mot khoang trong (gap) di truoc dau ve, ghi de len song cu.
-    /// Gan component nay vao mot object UI con nam trong khung Wave_...
+    /// Draws a monitor-style waveform: the trace sweeps from left to right,
+    /// with a blank gap ahead of the drawing cursor, overwriting the old waveform.
+    /// Attach this component to a child UI object inside the Wave_... container.
     /// </summary>
     [RequireComponent(typeof(CanvasRenderer))]
     public class WaveformGraphic : MaskableGraphic
@@ -14,11 +15,11 @@ namespace ICUSim
         public PatientModel patient;
         public WaveType wave = WaveType.ECG;
 
-        [Header("Truc doc")]
+        [Header("Vertical axis")]
         public float minValue = -0.5f;
         public float maxValue = 1.2f;
 
-        [Header("Hien thi")]
+        [Header("Display")]
         [Min(1f)] public float sweepSeconds = 5f;
         [Range(50, 1500)] public int samples = 600;
         [Min(0.5f)] public float lineWidth = 3f;
@@ -68,12 +69,12 @@ namespace ICUSim
                 write = (write + 1) % buffer.Length;
                 if (filled < buffer.Length) filled++;
             }
-            if (accumulator >= step) accumulator = 0f; // bo qua neu frame bi giat qua lau
+            if (accumulator >= step) accumulator = 0f; // Skip if the frame experiences a prolonged lag
 
             SetVerticesDirty();
         }
 
-        // Trong Edit mode: ve truoc mot doan song de xem bo cuc
+        // In Edit mode: draw a waveform preview to visualize the layout
         void FillPreview()
         {
             if (patient == null) patient = FindFirstObjectByType<PatientModel>();
@@ -108,12 +109,12 @@ namespace ICUSim
                 int next = i + 1;
                 if (filled < n)
                 {
-                    if (next >= filled) break; // chua ve toi day
+                    if (next >= filled) break; // The waveform has not reached this point yet
                 }
                 else if (gap > 0)
                 {
                     int d = (next - write + n) % n;
-                    if (d < gap) continue; // khoang trong truoc dau ve
+                    if (d < gap) continue; // Blank gap ahead of the drawing cursor
                 }
 
                 Vector2 a = ToPoint(r, i, n, buffer[i]);
@@ -135,7 +136,7 @@ namespace ICUSim
             if (dir.sqrMagnitude < 1e-6f) dir = Vector2.right;
             dir.Normalize();
             Vector2 nrm = new Vector2(-dir.y, dir.x) * half;
-            // keo dai moi doan mot chut de cac khop noi lien mach
+            // Slightly extend each segment to ensure smooth connections between segments
             a -= dir * half * 0.5f;
             b += dir * half * 0.5f;
 

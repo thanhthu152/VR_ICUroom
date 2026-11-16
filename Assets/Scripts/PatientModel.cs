@@ -1,11 +1,12 @@
+
 using UnityEngine;
 
 namespace ICUSim
 {
-    /// <summary>Loai dang song co the ve tren man hinh.</summary>
+    /// <summary>Types of waveforms that can be displayed on the screen.</summary>
     public enum WaveType { ECG, Pleth, Capno, Pressure, Flow, Volume }
 
-    /// <summary>Mot bo chi so cua benh nhan + may tho (dung cho moi kich ban).</summary>
+    /// <summary>A set of patient vital signs and ventilator parameters (used for each scenario).</summary>
     [System.Serializable]
     public class VitalSet
     {
@@ -31,19 +32,19 @@ namespace ICUSim
     }
 
     /// <summary>
-    /// "Nguon su that" duy nhat cua mo phong: ca hai man hinh deu doc chi so tu day.
-    /// Khi doi kich ban, chi so may tho thay doi nhanh, dau hieu sinh ton thay doi cham.
+    /// The single "source of truth" for the simulation: both monitors read their values from here.
+    /// When switching scenarios, ventilator parameters change quickly, while vital signs change slowly.
     /// </summary>
     public class PatientModel : MonoBehaviour
     {
-        [Tooltip("So giay de chi so may tho dat gia tri moi")]
+        [Tooltip("Time in seconds for ventilator parameters to reach their new values")]
         public float ventilatorResponseTime = 2f;
 
-        [Tooltip("So giay de dau hieu sinh ton (SpO2, HR, HA...) dat gia tri moi")]
+        [Tooltip("Time in seconds for vital signs (SpO2, HR, BP, etc.) to reach their new values")]
         public float vitalsResponseTime = 20f;
 
         [Range(0.2f, 0.5f)]
-        [Tooltip("Ti le thoi gian hit vao trong moi nhip tho (0.33 = I:E 1:2)")]
+        [Tooltip("Fraction of each respiratory cycle spent on inspiration (0.33 = I:E 1:2)")]
         public float inspiratoryFraction = 0.33f;
 
         public VitalSet current = new VitalSet();
@@ -68,11 +69,11 @@ namespace ICUSim
         {
             if (target == null) return;
             float dt = Time.deltaTime;
-            // Dat ~95% gia tri moi sau khoang thoi gian response time
+            // Reach approximately 95% of the new value after the specified response time
             float fast = 1f - Mathf.Exp(-dt * 3f / Mathf.Max(0.01f, ventilatorResponseTime));
             float slow = 1f - Mathf.Exp(-dt * 3f / Mathf.Max(0.01f, vitalsResponseTime));
 
-            // May tho + EtCO2: thay doi nhanh
+            // Ventilator parameters + EtCO2: fast response
             current.respRate        = Mathf.Lerp(current.respRate, target.respRate, fast);
             current.peakPressure    = Mathf.Lerp(current.peakPressure, target.peakPressure, fast);
             current.peep            = Mathf.Lerp(current.peep, target.peep, fast);
@@ -81,7 +82,7 @@ namespace ICUSim
             current.fiO2            = Mathf.Lerp(current.fiO2, target.fiO2, fast);
             current.etCO2           = Mathf.Lerp(current.etCO2, target.etCO2, fast);
 
-            // Dau hieu sinh ton: thay doi cham
+            // Vital signs: slow response
             current.heartRate   = Mathf.Lerp(current.heartRate, target.heartRate, slow);
             current.spO2        = Mathf.Lerp(current.spO2, target.spO2, slow);
             current.systolic    = Mathf.Lerp(current.systolic, target.systolic, slow);
@@ -89,7 +90,7 @@ namespace ICUSim
             current.temperature = Mathf.Lerp(current.temperature, target.temperature, slow);
         }
 
-        /// <summary>Tan so lap lai cua dang song (nhip/phut).</summary>
+        /// <summary>Repetition rate of the waveform (cycles per minute).</summary>
         public float GetRate(WaveType type)
         {
             return (type == WaveType.ECG || type == WaveType.Pleth)
@@ -97,7 +98,7 @@ namespace ICUSim
                 : current.respRate;
         }
 
-        /// <summary>Gia tri dang song tai pha 0..1 trong mot chu ky.</summary>
+        /// <summary>Waveform value at phase 0..1 within one cycle.</summary>
         public float Evaluate(WaveType type, float phase)
         {
             switch (type)
@@ -112,7 +113,7 @@ namespace ICUSim
             }
         }
 
-        // ---------- Hinh dang song ----------
+        // ---------- Waveform shapes ----------
 
         static float Gauss(float x, float mu, float sigma)
         {
@@ -130,13 +131,13 @@ namespace ICUSim
                  + 0.30f * Gauss(p, 0.45f, 0.045f);
         }
 
-        // Pleth: song mach co khuyet dicrotic
+        // Pleth: pulse waveform with a dicrotic notch
         static float Pleth(float p)
         {
             return Gauss(p, 0.30f, 0.09f) + 0.35f * Gauss(p, 0.55f, 0.07f);
         }
 
-        // Capnogram (mmHg): ~0 khi hit vao, tang nhanh roi binh nguyen khi tho ra
+        // Capnogram (mmHg): approximately 0 during inspiration, rapid rise followed by a plateau during expiration
         float Capno(float p)
         {
             float fi = inspiratoryFraction;
@@ -149,7 +150,7 @@ namespace ICUSim
             return et * rise * plateau;
         }
 
-        // Ap luc duong tho (cmH2O), che do the tich (VC)
+        // Airway pressure (cmH2O), volume-controlled ventilation (VC)
         float Pressure(float p)
         {
             float fi = inspiratoryFraction;
@@ -165,7 +166,7 @@ namespace ICUSim
             return peep + (pk - peep) * Mathf.Exp(-e * 25f);
         }
 
-        // Luu luong (L/min): duong khi hit vao (dong vuong), am khi tho ra (giam dan)
+        // Flow (L/min): positive during inspiration (square waveform), negative during expiration (exponential decay)
         float Flow(float p)
         {
             float fi = inspiratoryFraction;
@@ -188,7 +189,7 @@ namespace ICUSim
             return -peakExp * Mathf.Exp(-k * e);
         }
 
-        // The tich (mL): neu VTe < VTi (ro/tuot ong) duong cong khong ve 0
+        // Volume (mL): if VTe < VTi (leak/tube disconnection), the curve does not return to zero
         float Volume(float p)
         {
             float fi = inspiratoryFraction;

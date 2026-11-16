@@ -1,3 +1,4 @@
+
 using System;
 using System.Globalization;
 using TMPro;
@@ -7,26 +8,26 @@ using UnityEngine.UI;
 namespace ICUSim
 {
     /// <summary>
-    /// Gan vao Monitor_screen (Canvas cua monitor).
-    /// Tu tim: Tile_HR, Tile_SpO2, Tile_EtCO2, Tile_NIBP, Tile_RR, Tile_Temp (moi o co Txt_Value),
-    /// TopBar/AlarmBanner/Txt_Alarm va TopBar/Txt_Clock.
+    /// Monitor_screen
+    /// Keywords: Tile_HR, Tile_SpO2, Tile_EtCO2, Tile_NIBP, Tile_RR, Tile_Temp (each tile contains Txt_Value),
+    /// TopBar/AlarmBanner/Txt_Alarm and TopBar/Txt_Clock.
     /// </summary>
     public class MonitorDisplay : MonoBehaviour
     {
         public PatientModel patient;
 
-        [Header("Gioi han bao dong")]
+        [Header("Alarm limitation")]
         public float lowSpO2Limit = 90f;
         public float highHRLimit = 120f;
         public float lowHRLimit = 50f;
         public float lowEtCO2Limit = 10f;
         public float highRRLimit = 30f;
 
-        [Header("Huyet ap khong xam lan")]
-        [Tooltip("Bao nhieu giay do huyet ap mot lan (monitor that do dinh ky)")]
+        [Header("Non-invasive blood pressure")]
+        [Tooltip("Time interval between blood pressure measurements in seconds (real monitors measure periodically)")]
         public float nibpIntervalSeconds = 15f;
 
-        [Header("Mau")]
+        [Header("Colors")]
         public Color alarmTileColor = new Color(0.45f, 0.08f, 0.08f);
         public Color bannerColor = new Color(0.776f, 0.157f, 0.157f);
         public float blinkHz = 1.5f;
@@ -64,7 +65,7 @@ namespace ICUSim
                 Transform t = b.Find("Txt_Alarm");
                 if (t != null) alarmText = t.GetComponent<TMP_Text>();
             }
-            else Debug.LogWarning($"[MonitorDisplay] Khong tim thay 'TopBar/AlarmBanner' trong {name}");
+            else Debug.LogWarning($"[MonitorDisplay] Could not find 'TopBar/AlarmBanner' in {name}");
 
             Transform c = transform.Find("TopBar/Txt_Clock");
             if (c != null) clock = c.GetComponent<TMP_Text>();
@@ -81,7 +82,7 @@ namespace ICUSim
             Set(rr,    v.respRate,    "0");
             Set(temp,  v.temperature, "0.0");
 
-            // Huyet ap chi cap nhat moi lan "do"
+            // Blood pressure is updated only when a measurement is taken
             if (nibp != null && Time.time >= nextNibp)
             {
                 nextNibp = Time.time + nibpIntervalSeconds;
@@ -147,7 +148,7 @@ namespace ICUSim
         TMP_Text Txt(string tile)
         {
             Transform t = transform.Find(tile + "/Txt_Value");
-            if (t == null) { Debug.LogWarning($"[MonitorDisplay] Khong tim thay '{tile}/Txt_Value'"); return null; }
+            if (t == null) { Debug.LogWarning($"[MonitorDisplay] Could not find '{tile}/Txt_Value'"); return null; }
             return t.GetComponent<TMP_Text>();
         }
 

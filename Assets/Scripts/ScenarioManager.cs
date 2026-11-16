@@ -1,3 +1,4 @@
+
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -6,9 +7,9 @@ using UnityEngine.InputSystem;
 namespace ICUSim
 {
     /// <summary>
-    /// Chuyen giua cac kich ban. Bam phim 0-3 (khi dang Play, nho bam vao khung Game truoc):
-    /// 0 = Binh thuong, 1 = Ap luc cao, 2 = The tich tho ra thap, 3 = Tan so tho cao.
-    /// Cac gia tri chi la MINH HOA - can giang vien / dieu duong ICU kiem tra lai.
+    /// Switch between scenarios. Press keys 0-3 (while in Play mode, click the Game window first):
+    /// 0 = Normal, 1 = High airway pressure, 2 = Low exhaled volume, 3 = High respiratory rate.
+    /// These values are for DEMONSTRATION ONLY and must be reviewed by an instructor or ICU nurse.
     /// </summary>
     public class ScenarioManager : MonoBehaviour
     {
@@ -34,7 +35,7 @@ namespace ICUSim
             }
         }
 
-        /// <summary>Goi tu nut bam UI / VR sau nay.</summary>
+        /// <summary>Called by UI / VR buttons in future implementations.</summary>
         public void ApplyScenario(int index)
         {
             Apply(index, false);
@@ -84,21 +85,21 @@ namespace ICUSim
                 },
                 new VitalSet
                 {
-                    // Vd: dom tac, gap ong, co that phe quan -> ap luc dinh vuot gioi han
+                    // E.g., mucus plug, kinked tube, bronchospasm -> peak airway pressure exceeds the limit
                     name = "1. High airway pressure",
                     heartRate = 108, spO2 = 88, etCO2 = 44, systolic = 138, diastolic = 84, temperature = 37.2f,
                     respRate = 14, peakPressure = 42, peep = 5, tidalVolumeInsp = 340, tidalVolumeExp = 330, fiO2 = 40
                 },
                 new VitalSet
                 {
-                    // Vd: tuot ong / ro khi -> the tich tho ra thap, mat song CO2
+                    // E.g., tube disconnection / air leak -> low exhaled volume, loss of CO2 waveform
                     name = "2. Low exhaled volume",
                     heartRate = 112, spO2 = 86, etCO2 = 3, systolic = 132, diastolic = 82, temperature = 37.2f,
                     respRate = 14, peakPressure = 8, peep = 1, tidalVolumeInsp = 450, tidalVolumeExp = 90, fiO2 = 40
                 },
                 new VitalSet
                 {
-                    // Vd: kich thich, dau, thieu oxy -> benh nhan tho nhanh
+                    // E.g., agitation, pain, hypoxia -> increased patient respiratory rate
                     name = "3. High respiratory rate",
                     heartRate = 118, spO2 = 92, etCO2 = 31, systolic = 148, diastolic = 90, temperature = 37.4f,
                     respRate = 34, peakPressure = 26, peep = 5, tidalVolumeInsp = 420, tidalVolumeExp = 410, fiO2 = 40

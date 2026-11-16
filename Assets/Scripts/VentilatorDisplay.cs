@@ -1,3 +1,4 @@
+
 using System.Globalization;
 using TMPro;
 using UnityEngine;
@@ -6,20 +7,20 @@ using UnityEngine.UI;
 namespace ICUSim
 {
     /// <summary>
-    /// Gan vao Ventilator_screen (Canvas cua may tho).
-    /// Tu tim cac o theo ten: Tile_Ppeak, Tile_VTe, Tile_fTotal, Tile_MVe, Tile_FiO2, Tile_PEEP
-    /// (moi o co con Txt_Value) va TopBar/AlarmBanner/Txt_Alarm.
+    /// Attach to Ventilator_screen (ventilator Canvas).
+    /// Automatically finds tiles by name: Tile_Ppeak, Tile_VTe, Tile_fTotal, Tile_MVe, Tile_FiO2, Tile_PEEP
+    /// (each tile contains a child named Txt_Value) and TopBar/AlarmBanner/Txt_Alarm.
     /// </summary>
     public class VentilatorDisplay : MonoBehaviour
     {
         public PatientModel patient;
 
-        [Header("Gioi han bao dong")]
+        [Header("Alarm limits")]
         public float highPressureLimit = 40f;      // cmH2O
         public float lowExhaledVolumeLimit = 300f; // mL
         public float highRespRateLimit = 30f;      // /min
 
-        [Header("Mau")]
+        [Header("Colors")]
         public Color alarmTileColor = new Color(0.55f, 0.10f, 0.10f);
         public Color bannerColor = new Color(0.776f, 0.157f, 0.157f);
         public float blinkHz = 1.5f;
@@ -55,7 +56,7 @@ namespace ICUSim
                 Transform t = b.Find("Txt_Alarm");
                 if (t != null) alarmText = t.GetComponent<TMP_Text>();
             }
-            else Debug.LogWarning($"[VentilatorDisplay] Khong tim thay 'TopBar/AlarmBanner' trong {name}");
+            else Debug.LogWarning($"[VentilatorDisplay] Could not find 'TopBar/AlarmBanner' in {name}");
         }
 
         void Update()
@@ -115,7 +116,7 @@ namespace ICUSim
         TMP_Text Txt(string tile)
         {
             Transform t = transform.Find(tile + "/Txt_Value");
-            if (t == null) { Debug.LogWarning($"[VentilatorDisplay] Khong tim thay '{tile}/Txt_Value'"); return null; }
+            if (t == null) { Debug.LogWarning($"[VentilatorDisplay] Could not find '{tile}/Txt_Value'"); return null; }
             return t.GetComponent<TMP_Text>();
         }
 
